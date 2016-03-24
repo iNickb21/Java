@@ -1,0 +1,32 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files\Java\jdk1.8.0_51\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.8
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;H:\Java\Chapter 5A
+-d
+H:\Java\Chapter 5A\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+H:\Java\Chapter 5A\Exercise2.java
+<---- end of javadoc command ---->
+Loading source file H:\Java\Chapter 5A\Exercise2.java...
+H:\Java\Chapter 5A\Exercise2.java:12: error: illegal start of statement
+    }
+    ^
+1 error

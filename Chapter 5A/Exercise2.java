@@ -1,33 +1,33 @@
+import java.util.Scanner;
 
-/**
- * Write a description of class Exercise2 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Exercise2
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Exercise2
-     */
-    public Exercise2()
+    public static void main(String[] args)
     {
-        // initialise instance variables
-        x = 0;
-    }
+        Scanner scan = new Scanner(System.in);
+        System.out.println("What size pizza do you want? S, M, L, X");
+        String input = scan.nextLine();
+        String pizzaPrice = "";
+        
+        if(input.equalsIgnoreCase("S"))
+            pizzaPrice = "$6.99";
+        
+        else if(input.equalsIgnoreCase("M"))
+            pizzaPrice = "$8.99";
+        
+        else if(input.equalsIgnoreCase("L"))
+            pizzaPrice = "$12.50";
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        else if(input.equalsIgnoreCase("X"))
+            pizzaPrice = "$15.00";
+        
+        else
+        {
+            System.out.println("That's not an option! Pizza sizes are S, M, L, or X.");
+            System.exit(0);
+        }
+
+        System.out.println("Your pizza costs " + pizzaPrice + ".");
+
     }
 }
