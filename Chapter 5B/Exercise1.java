@@ -6,7 +6,8 @@ public class Exercise1
         String[] vowels = {"a","e","i","o","u"};
         System.out.print("Enter a character: ");
         Scanner s = new Scanner(System.in);
-        String input = s.nextLine();
+        String input = 
+        s.nextLine();
         boolean is = false;
         
         for(int i=0; i < vowels.length; ++i)
