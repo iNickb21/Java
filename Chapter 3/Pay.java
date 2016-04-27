@@ -1,33 +1,50 @@
-
 /**
- * Write a description of class Pay here.
+ * Chapter 3A Ex 2 (Pay)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Harold Boyett 
+ * @version 4-27-2016
  */
+
 public class Pay
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private double hoursWorked;
+    private double grossPay;
+    private double netPay;
+    private double payRate;
+    private double withholdingRate;
 
-    /**
-     * Constructor for objects of class Pay
-     */
-    public Pay()
+    
+    public static void main(String[] args)
     {
-        // initialise instance variables
-        x = 0;
+        Pay pay = new Pay();
+        double pay1 = pay.computeNetPay(40.00d,7.25d,10.0d);
+        System.out.println("hoursWorked payRate withholdingRate" + pay1);
+        double pay2 = pay.computeNetPay(40.00d,10.0d);
+        System.out.println("hoursWorked payRate " + pay2);
+        double pay3 = pay.computeNetPay(40.00d);
+        System.out.println("hoursWorked " + pay3);
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    public double computeNetPay(double hoursWorked, double payRate, double withholdingRate)
     {
-        // put your code here
-        return x + y;
+        grossPay = hoursWorked * payRate;
+        double withholding = grossPay * withholdingRate / 100;
+        netPay = grossPay - withholding;
+        return netPay;
+    }
+    public double computeNetPay(double hoursWorked, double payRate)
+    {
+        withholdingRate = 15;
+        grossPay = hoursWorked * payRate;
+        double withholding = grossPay * withholdingRate /100;
+        netPay = grossPay - withholding;
+        return netPay;
+    }
+    public double computeNetPay(double hoursWorked)
+    {
+        payRate = 4.65;
+        grossPay = hoursWorked * payRate;
+        double withholding = grossPay * withholdingRate /100;
+        netPay = grossPay - withholding;
+        return netPay;
     }
 }

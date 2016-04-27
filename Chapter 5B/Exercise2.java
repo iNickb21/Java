@@ -12,6 +12,6 @@ public class Exercise2
             if(Character.isLetter(randomCharactersArray[i]))
             numChar++;
         }
-        System.out.println("There are " + numChar + " characters and " + (randomCharactersArray.length - numChar) + " not characters.");
+        System.out.println(randomCharacters + " contains " + numChar + " characters and " + (randomCharactersArray.length - numChar) + " not characters.");
     }
 }
