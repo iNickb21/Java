@@ -2,7 +2,7 @@ import java.applet.*;
 import java.awt.*;
 
 /**
- * Class Exercise3 - write a description of the class here
+ * Class Exercise - write a description of the class here
  * 
  * @author (your name) 
  * @version (a version number)
