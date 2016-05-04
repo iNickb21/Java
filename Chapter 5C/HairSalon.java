@@ -1,9 +1,7 @@
 
-/**
- * Write a description of class SalonServices here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+/** 
+ * @author Nick 
+ * @version 5-2-2016
  */
 public class HairSalon
 {
@@ -13,9 +11,9 @@ public class HairSalon
     
     public HairSalon(String cut, double price, int min)
     {
-        cut = serviceName;
-        price = servicePrice;
-        min = serviceMinutes;
+        serviceName = cut;
+        servicePrice = price;
+        serviceMinutes = min;
     }
     
     public String getServiceName()

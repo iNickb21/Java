@@ -1,3 +1,10 @@
+/** 
+ * Chapter 5A Ex 3
+ * 
+ * @author Nick 
+ * @version 5-2-2016
+ */
+
 import java.util.Scanner;
 
 public class Taxpayer
