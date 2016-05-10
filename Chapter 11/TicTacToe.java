@@ -1,9 +1,11 @@
+ 
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.GridLayout;
+import java.awt.*;
+
 public class TicTacToe implements ActionListener
 {
-    final static String LABEL_TEXT = "Tic Tac Toe";
+    final static String LABEL_TEXT = "X goes first.";
     JFrame frame;
     JPanel contentPane;
     JLabel label;
@@ -20,6 +22,7 @@ public class TicTacToe implements ActionListener
     
     int xoro = 0;
     int turnNumber = 0;
+    int gameOver = 0;
     
     public TicTacToe()
     {
@@ -27,19 +30,22 @@ public class TicTacToe implements ActionListener
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         contentPane = new JPanel();
-        
+                
         label = new JLabel(LABEL_TEXT);
-        contentPane.add(label);
         
-        button1_1 = new JButton("   ");
-        button1_2 = new JButton("   ");
-        button1_3 = new JButton("   ");
-        button2_1 = new JButton("   ");
-        button2_2 = new JButton("   ");
-        button2_3 = new JButton("   ");
-        button3_1 = new JButton("   ");
-        button3_2 = new JButton("   ");
-        button3_3 = new JButton("   ");
+        
+        GridLayout formLayout = new GridLayout(0,3);
+        contentPane.setLayout(formLayout);
+        
+        button1_1 = new JButton();
+        button1_2 = new JButton();
+        button1_3 = new JButton();
+        button2_1 = new JButton();
+        button2_2 = new JButton();
+        button2_3 = new JButton();
+        button3_1 = new JButton();
+        button3_2 = new JButton();
+        button3_3 = new JButton();
         
         button1_1.setActionCommand("button1_1_pressed");
         button1_2.setActionCommand("button1_2_pressed");
@@ -60,9 +66,7 @@ public class TicTacToe implements ActionListener
         button3_1.addActionListener(this);
         button3_2.addActionListener(this);
         button3_3.addActionListener(this);
-        
-        setLayout(new GridLayout(3,3));
-        
+                
         contentPane.add(button1_1);
         contentPane.add(button1_2);
         contentPane.add(button1_3);
@@ -73,17 +77,18 @@ public class TicTacToe implements ActionListener
         contentPane.add(button3_2);
         contentPane.add(button3_3);
         
+        contentPane.add(label);
+        
         frame.setContentPane(contentPane);
         
-        frame.pack();
+        frame.setSize(500, 500);
         frame.setVisible(true);
     }
     
     public void actionPerformed(ActionEvent event)
     {
         String eventName = event.getActionCommand();
-        if(turnNumber <= 9)
-        {
+        
             if(xoro == 0)
             {
                 JButton buttn = (JButton)event.getSource();
@@ -101,11 +106,64 @@ public class TicTacToe implements ActionListener
                 xoro = 0;
             }
             turnNumber++;
-        }
-        
-        else
-        {
-            label.setText("GAME OVER");
-        }
+            
+            //across x
+            if((button1_1.getText() == "X" && button1_2.getText() == "X" && button1_3.getText() == "X")||(button2_1.getText() == "X" && button2_2.getText() == "X" && button2_3.getText() == "X")||(button3_1.getText() == "X" && button3_2.getText() == "X" && button3_3.getText() == "X"))
+            {
+                label.setText("X Wins");
+                gameOver = 1;
+            }
+            
+            //down x
+            else if((button1_1.getText() == "X" && button2_1.getText() == "X" && button3_1.getText() == "X")||(button1_2.getText() == "X" && button2_2.getText() == "X" && button3_2.getText() == "X")||(button1_3.getText() == "X" && button2_3.getText() == "X" && button3_3.getText() == "X"))
+            {
+                label.setText("X Wins");
+                gameOver = 1;
+            }
+                
+            // diagonal x
+            else if((button1_1.getText() == "X" && button2_2.getText() == "X" && button3_3.getText() == "X")||(button3_1.getText() == "X" && button2_2.getText() == "X" && button1_3.getText() == "X"))
+            {
+                label.setText("X Wins");
+                gameOver = 1;
+            }
+                
+            //across o
+            else if((button1_1.getText() == "O" && button1_2.getText() == "O" && button1_3.getText() == "O")||(button2_1.getText() == "O" && button2_2.getText() == "O" && button2_3.getText() == "O")||(button3_1.getText() == "O" && button3_2.getText() == "O" && button3_3.getText() == "O"))
+            {
+                label.setText("O Wins");
+                gameOver = 1;
+            }
+            
+            //down o
+            else if((button1_1.getText() == "O" && button2_1.getText() == "O" && button3_1.getText() == "O")||(button1_2.getText() == "O" && button2_2.getText() == "O" && button3_2.getText() == "O")||(button1_3.getText() == "O" && button2_3.getText() == "O" && button3_3.getText() == "O"))
+            {
+                label.setText("O Wins");
+                gameOver = 1;
+            }
+                
+            // diagonal o
+            else if((button1_1.getText() == "O" && button2_2.getText() == "O" && button3_3.getText() == "O")||(button3_1.getText() == "O" && button2_2.getText() == "O" && button1_3.getText() == "O"))
+            {
+                label.setText("O Wins");
+                gameOver = 1;
+            }
+            
+            else if(turnNumber == 9)
+                label.setText("Nobody Wins");
+                
+                
+           if (gameOver == 1)
+           {
+               button1_1.setEnabled(false);
+               button1_2.setEnabled(false);
+               button1_3.setEnabled(false);
+               button2_1.setEnabled(false);
+               button2_2.setEnabled(false);
+               button2_3.setEnabled(false);
+               button3_1.setEnabled(false);
+               button3_2.setEnabled(false);
+               button3_3.setEnabled(false);
+           }
     }
 }
