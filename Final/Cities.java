@@ -1,4 +1,7 @@
-
+/** 
+ * @author Harold
+ * @version 5-18-2016
+ */
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
